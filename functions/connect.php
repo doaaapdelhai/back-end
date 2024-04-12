@@ -9,6 +9,4 @@ try{
 }catch(throwble $e){
 print_r($e);
 }
-
-
  ?>
