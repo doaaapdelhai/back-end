@@ -28,9 +28,6 @@ if(in_array($ex_img,$ex)){
             header("location:../../products.php");
 
         }
-
-
-
 }else{
     header("location:../../products.php?products==add&ms= the file is bage ");  //size
 

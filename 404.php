@@ -42,7 +42,7 @@
 <h2>Oops! Page Not Found!</h2>
 <p>The page you are looking for does not exist. It might have been moved or deleted.</p>
 <div class="button">
-<a href="index-2.html" class="btn">Back to Home</a>
+<a href="index-2.php" class="btn">Back to Home</a>
 </div>
 </div>
 </div>
