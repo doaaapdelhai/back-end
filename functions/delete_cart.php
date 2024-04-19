@@ -14,6 +14,7 @@ $connect->query("DELETE FROM cart WHERE product_id ='$id_pro' ");
 echo "yes";
 
  
+git remote add origin https://github.com/doaaapdelhai/back-end.git
 
 
 // =========== cart page ==========
