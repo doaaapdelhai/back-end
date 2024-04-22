@@ -63,6 +63,7 @@ $product = $connect->query("SELECT * FROM products WHERE id='$productId'")->fetc
 <div class="row align-items-center">
 <div class="col-lg-1 col-md-1 col-12">
 <a href="product-details.php"><img src="dashboard/images/<?=$product["img"]?>" alt="#"></a>
+
 </div>
 <div class="col-lg-4 col-md-3 col-12">
 <h5 class="product-name"><a href="product-details.php">  <?php echo $product['name']; ?></a></h5>

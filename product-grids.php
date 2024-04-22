@@ -1,7 +1,5 @@
 <?php include "style/header.php"?>
 
-
-
 <div class="breadcrumbs">
 <div class="container">
 <div class="row align-items-center">
@@ -20,7 +18,6 @@
 </div>
 </div>
 </div>
-
 
 <section class="product-grids section">
 <div class="container">
@@ -191,49 +188,31 @@ Panasonic (74)
 <div class="tab-content" id="nav-tabContent">
 <div class="tab-pane fade show active" id="nav-grid" role="tabpanel" aria-labelledby="nav-grid-tab">
 <div class="row">
+    <!-- <!=======================================--start =================================== --> 
+    
+    <?php
+
+$products = $connect->query("SELECT * FROM products ORDER BY cat");
+foreach ($products as $product):
+?>
+
 <div class="col-lg-4 col-md-6 col-12">
 
 <div class="single-product">
 <div class="product-image">
-<img src="assets/images/products/product-1.jpg" alt="#">
+<img src="dashboard/images/<?php echo  $product["img"]?>"  style=' height:190px ; width:200px; '  alt="#">
+
+<span class="sale-tag"> -<?php echo $product['sale']; ?>%  </span>
 <div class="button">
-<a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
+<a href="product-details.php" id_pro="<?php echo  $product["id"]?> "   class="btn _cart "><i class="lni lni-cart "></i> Add to Cart</a>
+
+
 </div>
 </div>
 <div class="product-info">
-<span class="category">Watches</span>
+<span class="category"> category : <?php echo $product['cat']; ?> </span>
 <h4 class="title">
-<a href="product-grids.html">Xiaomi Mi Band 5</a>
-</h4>
-<ul class="review">
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star"></i></li>
-<li><span>4.0 Review(s)</span></li>
-</ul>
-<div class="price">
-<span>$199.00</span>
-</div>
-</div>
-</div>
-
-</div>
-<div class="col-lg-4 col-md-6 col-12">
-
-<div class="single-product">
-<div class="product-image">
-<img src="assets/images/products/product-2.jpg" alt="#">
-<span class="sale-tag">-25%</span>
-<div class="button">
-<a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-</div>
-</div>
-<div class="product-info">
-<span class="category">Speaker</span>
-<h4 class="title">
-<a href="product-grids.html">Bluetooth Speaker</a>
+<a href="product-grids.html"><?php echo $product['name']; ?></a>
 </h4>
 <ul class="review">
 <li><i class="lni lni-star-filled"></i></li>
@@ -241,224 +220,18 @@ Panasonic (74)
 <li><i class="lni lni-star-filled"></i></li>
 <li><i class="lni lni-star-filled"></i></li>
 <li><i class="lni lni-star-filled"></i></li>
-<li><span>5.0 Review(s)</span></li>
+<li><span> Count: (<?php echo $product['count'];?>)-Review(s)</span></li>
 </ul>
 <div class="price">
-<span>$275.00</span>
-<span class="discount-price">$300.00</span>
-</div>
-</div>
-</div>
-
- </div>
-<div class="col-lg-4 col-md-6 col-12">
-
-<div class="single-product">
-<div class="product-image">
-<img src="assets/images/products/product-3.jpg" alt="#">
-<div class="button">
-<a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-</div>
-</div>
-<div class="product-info">
-<span class="category">Camera</span>
-<h4 class="title">
-<a href="product-grids.html">WiFi Security Camera</a>
-</h4>
-<ul class="review">
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><span>5.0 Review(s)</span></li>
-</ul>
-<div class="price">
-<span>$399.00</span>
-</div>
-</div>
-</div>
-
-</div>
-<div class="col-lg-4 col-md-6 col-12">
-
-<div class="single-product">
-<div class="product-image">
-<img src="assets/images/products/product-4.jpg" alt="#">
-<span class="new-tag">New</span>
-<div class="button">
-<a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-</div>
-</div>
-<div class="product-info">
-<span class="category">Phones</span>
-<h4 class="title">
-<a href="product-grids.html">iphone 6x plus</a>
-</h4>
-<ul class="review">
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
- <li><span>5.0 Review(s)</span></li>
-</ul>
-<div class="price">
-<span>$400.00</span>
-</div>
-</div>
-</div>
-
-</div>
-<div class="col-lg-4 col-md-6 col-12">
-
-<div class="single-product">
-<div class="product-image">
-<img src="assets/images/products/product-5.jpg" alt="#">
-<div class="button">
-<a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-</div>
-</div>
-<div class="product-info">
-<span class="category">Headphones</span>
-<h4 class="title">
-<a href="product-grids.html">Wireless Headphones</a>
-</h4>
-<ul class="review">
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><span>5.0 Review(s)</span></li>
-</ul>
-<div class="price">
-<span>$350.00</span>
-</div>
-</div>
-</div>
-
-</div>
-<div class="col-lg-4 col-md-6 col-12">
-
-<div class="single-product">
-<div class="product-image">
-<img src="assets/images/products/product-6.jpg" alt="#">
-<div class="button">
-<a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-</div>
-</div>
-<div class="product-info">
-<span class="category">Speaker</span>
-<h4 class="title">
-<a href="product-grids.html">Mini Bluetooth Speaker</a>
-</h4>
-<ul class="review">
-<li><i class="lni lni-star-filled"></i></li>
- <li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star"></i></li>
-<li><span>4.0 Review(s)</span></li>
-</ul>
-<div class="price">
-<span>$70.00</span>
-</div>
-</div>
-</div>
-
-</div>
-<div class="col-lg-4 col-md-6 col-12">
-
-<div class="single-product">
-<div class="product-image">
-<img src="assets/images/products/product-7.jpg" alt="#">
-<span class="sale-tag">-50%</span>
-<div class="button">
-<a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-</div>
-</div>
-<div class="product-info">
-<span class="category">Headphones</span>
-<h4 class="title">
-<a href="product-grids.html">Wireless Headphones</a>
-</h4>
-<ul class="review">
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star"></i></li>
-<li><span>4.0 Review(s)</span></li>
-</ul>
-<div class="price">
-<span>$100.00</span>
-<span class="discount-price">$200.00</span>
-</div>
-</div>
-</div>
-
-</div>
-<div class="col-lg-4 col-md-6 col-12">
-
-<div class="single-product">
-<div class="product-image">
-<img src="assets/images/products/product-8.jpg" alt="#">
-<div class="button">
-<a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-</div>
- </div>
-<div class="product-info">
-<span class="category">Laptop</span>
-<h4 class="title">
-<a href="product-grids.html">Apple MacBook Air</a>
-</h4>
-<ul class="review">
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><span>5.0 Review(s)</span></li>
-</ul>
-<div class="price">
-<span>$899.00</span>
-</div>
-</div>
-</div>
-
-</div>
-<div class="col-lg-4 col-md-6 col-12">
-
-<div class="single-product">
-<div class="product-image">
-<img src="assets/images/products/product-2.jpg" alt="#">
-<span class="sale-tag">-25%</span>
-<div class="button">
-<a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-</div>
-</div>
-<div class="product-info">
-<span class="category">Speaker</span>
-<h4 class="title">
-<a href="product-grids.html">Bluetooth Speaker</a>
-</h4>
-<ul class="review">
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><span>5.0 Review(s)</span></li>
-</ul>
-<div class="price">
-<span>$275.00</span>
+<span><?php echo $product['price']; ?></span>
 <span class="discount-price">$300.00</span>
 </div>
 </div>
 </div>
 
 </div>
+<?php endforeach;?>
+<!-- end -->
 </div>
 <div class="row">
 <div class="col-12">

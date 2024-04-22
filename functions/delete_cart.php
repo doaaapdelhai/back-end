@@ -1,7 +1,7 @@
 
 <?php 
 
-
+// ============== delet in view cart in header ===============
 require "connect.php";
 
 
@@ -12,10 +12,6 @@ $connect->query("DELETE FROM cart WHERE product_id ='$id_pro' ");
 
 
 echo "yes";
-
- 
-git remote add origin https://github.com/doaaapdelhai/back-end.git
-
 
 // =========== cart page ==========
 
@@ -34,6 +30,6 @@ if(isset($_POST['id_pro'])) {
 ?>
 
 
-
+ 
 
 

@@ -198,7 +198,7 @@ $.post("functions/delete_cart.php", { id_pro: productId }, function(data){
 if(data === "success") {
 $(this).closest(".li-cart").remove();
 } else {
-alert("حدثت مشكلة أثناء حذف العنصر.");
+alert("errorrrrrr  ");
 }
 });
 });

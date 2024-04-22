@@ -194,66 +194,83 @@ suffered alteration in some form.</p>
 
 </div>
 
-</div xx>
+</div >
 <!--  -->
 </div>
 </section>
 
-
+<!-- ========xx========== -->
 <section class="trending-product section">
-<div class="container">
-<div class="row">
-<div class="col-12">
-<div class="section-title">
-<h2>Trending Product</h2>
-<p>There are many variations of passages of Lorem Ipsum available, but the majority have
-suffered alteration in some form.</p>
-</div>
-</div>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2>Trending Product</h2>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+                </div>
+            </div>
+        </div>
 
-<div class="row">
-    <?php
-    $products=$connect->query("SELECT * FROM products");
-    foreach ($products as $key => $product):
-    ?>
-<div class="col-lg-3 col-md-6 col-12">
+        <div class="row">
+            <?php 
+            // Pagination logic
+            $start_limit = 0; // Default start limit
+            if(isset($_GET['page'])) {
+                $num_page = $_GET['page'];
+                $start_limit = 4 * ($num_page - 1);
+            }
 
-<div class="single-product">
-<div class="product-image">
-<img src="dashboard/images/<?php echo  $product["img"]?>  " style=' height:190px ; width:200px; ' alt="#">
-<div class="button">
-    <!-- ===================================== btn  === cartttt===================== -->
-<bottom href="product-details.php" id_pro="<?php echo  $product["id"]?> " class="btn _cart"><i class="lni lni-cart "></i> Add to Cart</bottom>
-</div>
+            // Fetch products with pagination
+            $select_product = $connect->query("SELECT * FROM products ORDER BY id LIMIT $start_limit, 4");
 
-</div>
-<div class="product-info">
-<h4 class="title">
-<a href="product-grids.php">Name :   <?php echo  $product["name"]?>  </a>
-</h4>
-<span class="category">Category :   <?php echo  $product["cat"]?>  </span>
-<span class="category">Sale :   <?php echo  $product["sale"]?>  </span>
-<span class="category">count :   <?php echo  $product["count"]?>  </span>
+            foreach ($select_product as $key => $product): ?>
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="single-product">
+                    <div class="product-image">
+                        <img src="dashboard/images/<?php echo $product["img"]; ?>" style='height: 190px; width: 200px;' alt="#">
+                        <div class="button">
+                            <a href="product-details.php"   id_pro="<?php echo $product["id"]; ?>" class="btn _cart"><i class="lni lni-cart"></i> Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="title"><a href="product-grids.php">Name : <?php echo $product["name"]; ?></a></h4>
+                        <span class="category">Category : <?php echo $product["cat"]; ?></span>
+                        <span class="category">Sale : <?php echo $product["sale"]; ?></span>
+                        <span class="category">Count : <?php echo $product["count"]; ?></span>
+                        <ul class="review">
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                        </ul>
+                        <div class="price">
+                            <span>Price : <?php echo $product["price"]; ?> $</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
 
-<ul class="review">
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
- <li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-<li><i class="lni lni-star-filled"></i></li>
-</ul>
-<div class="price">
-<span>Price :   <?php echo  $product["price"]?>  $</span>
-</div>
-</div>
-</div>
+        <!-- Pagination -->
+        <nav aria-label="...">
+            <ul class="pagination pagination-sm">
+                <?php
+                $select_num = $connect->query("SELECT COUNT(*) AS total FROM products");
+                $row = $select_num->fetch_assoc();
+                $total_products = $row['total'];
+                $num_pages = ceil($total_products / 4); // Calculate total number of pages
 
-</div>
-<?php endforeach ?>
-
-</div>
-</div>
+                for ($i = 1; $i <= $num_pages; $i++) {
+             
+                    echo "<li class='page-item' style='display: inline-block; margin-right: 10px;  text-align: center;'><a style='color: black; border: 1px solid blue; padding: 5px 8px; display: inline-block;'  class='page-link' href='?page=$i'>$i</a></li>";
+                }
+                ?>
+            </ul>
+        </nav>
+        <!-- end pagination -->
+    </div>
 </section>
 
 
